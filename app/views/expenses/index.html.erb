@@ -1,0 +1,10 @@
+<% provide(:title, 'All expenses') %>
+<h1>All expenses</h1>
+
+<ul class="expenses">
+  <% @expenses.each do |expense| %>
+    <li>
+      <%= link_to expense.amount, expense %>
+    </li>
+  <% end %>
+</ul>

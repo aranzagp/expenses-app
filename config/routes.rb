@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'expense/new'
 
 	root 'static_pages#home'
 	
@@ -11,6 +10,12 @@ Rails.application.routes.draw do
   get 'static_pages/income'
 
   get 'static_pages/balance'
+
+  get '/expenses/new',  to: 'expenses#new'
+
+  post '/expenses/new',  to: 'expenses#create'
+
+  resources :expenses
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
