@@ -8,7 +8,6 @@ class ExpensesController < ApplicationController
   def new
   	@expense = Expense.new
     @value = @expense
-    @expense.date = Time.now.strftime('%m/%d/%y')
   end
 
   def create

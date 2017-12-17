@@ -1,12 +1,13 @@
 <% provide(:title, 'All expenses') %>
 <h1>All expenses</h1>
 
-<table class="table table-hover">
+<table id="sortExp" class="table table-hover table-striped">
   <tr>
     <th>Amount</th>
     <th>Date</th> 
     <th>Place</th>
     <th>Category</th>
+    <th></th>
   </tr>
   <% @expenses.each do |expense| %>
   <tr id = "tr_<%= expense.id %>">
@@ -15,7 +16,7 @@
     <td><%= expense.place %> </td>
     <td><%= expense.category %> </td>
     <td>
-      <button class="btn btn-primary" onclick="deleteExp(<%= expense.id %>)"> Delete </button>
+      <button class="btn btn-danger" onclick="deleteExp(<%= expense.id %>)"> Delete </button>
     </td>
   </tr>
   <% end %>

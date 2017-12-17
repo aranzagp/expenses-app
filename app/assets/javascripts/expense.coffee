@@ -12,3 +12,7 @@ window.deleteExp = (id) ->
 	)
 	.fail((err) -> console.log("Error", err))
 
+$(document).ready ->
+  $('#sortExp').DataTable()
+  
+

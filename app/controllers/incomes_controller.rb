@@ -25,6 +25,20 @@ class IncomesController < ApplicationController
   	@incomes = Income.all.order('date DESC')
   end
 
+  def destroy
+    if Income.destroy(params[:id])
+      logger.debug "Income destroyed #{params[:id]}"
+      respond_to do |format|
+        format.json do
+          render json: {
+            status: 'success'
+          }.to_json
+        end
+      end
+    end
+
+  end
+
   private
 
   def income_params

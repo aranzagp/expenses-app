@@ -10,7 +10,7 @@
       <%= f.number_field :amount , class: 'form-control'%>
 
       <%= f.label :date %>
-      <%= f.date_field :date, class: 'form-control', :value => Time.now.strftime('%m/%d/%y') %>
+      <%= f.date_field :date, class: 'form-control', :value => Time.now.strftime('%Y-%m-%d') %>
 
       <%= f.label :place %>
       <%= f.text_field :place, class: 'form-control' %>
