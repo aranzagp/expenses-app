@@ -1,27 +1,27 @@
 <div class="container">
 	<p>
 	  <strong>Amount:</strong>
-	  <%= @expense.amount %>
+	  <%= @income.amount %>
 	</p>
 
 	<p>
 		<strong>Place:</strong>
-		<%= @expense.place %>
+		<%= @income.place %>
 	</p>
 
 	<p>
 		<strong>Date:</strong>
-		<%= @expense.date %>
+		<%= @income.date %>
 	</p>
 
 	<p>
 		<strong>Category:</strong>
-		<%= @expense.category %>
+		<%= @income.category %>
 	</p>
 
 	<p>
-		<%= link_to 'Edit', edit_expense_path(@expense) %> |
-		<%= link_to 'Back', expenses_path %>
+		<%= link_to 'Edit', edit_income_path(@income) %> |
+		<%= link_to 'Back', incomes_path %>
 	</p>
 </div>
 

@@ -7,10 +7,12 @@ class ExpensesController < ApplicationController
 
   def new
   	@expense = Expense.new
+    @value = @expense
   end
 
   def create
     @expense = Expense.new(expense_params)    # Not the final implementation!
+    @value = @expense
     if @expense.save
     	flash[:success] = "Expense added!"
       redirect_to @expense
