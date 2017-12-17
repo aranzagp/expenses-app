@@ -8,6 +8,7 @@ class ExpensesController < ApplicationController
   def new
   	@expense = Expense.new
     @value = @expense
+    @expense.date = Time.now.strftime('%m/%d/%y')
   end
 
   def create
@@ -23,7 +24,7 @@ class ExpensesController < ApplicationController
   end
 
   def index
-  	@expenses = Expense.all
+  	@expenses = Expense.all.order('date DESC')
   end
 
   def edit
@@ -38,6 +39,20 @@ class ExpensesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    if Expense.destroy(params[:id])
+      logger.debug "Expense destroyed #{params[:id]}"
+      respond_to do |format|
+        format.json do
+          render json: {
+            status: 'success'
+          }.to_json
+        end
+      end
+    end
+
   end
 
   private

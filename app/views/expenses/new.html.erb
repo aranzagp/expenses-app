@@ -10,7 +10,7 @@
       <%= f.number_field :amount , class: 'form-control'%>
 
       <%= f.label :date %>
-      <%= f.date_field :date, class: 'form-control' %>
+      <%= f.date_field :date, class: 'form-control', :value => Time.now.strftime('%m/%d/%y') %>
 
       <%= f.label :place %>
       <%= f.text_field :place, class: 'form-control' %>
@@ -19,6 +19,8 @@
       <%= f.text_field :category, class: 'form-control' %>
       <hr>
       <%= f.submit "Create expense", class: "btn btn-primary" %>
+      
     <% end %>
+
   </div>
   </div>

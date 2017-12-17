@@ -6,7 +6,6 @@ class IncomesAdditionTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Income.count' do
       post incomes_path, params: { income: { amount:  nil,
                                          date: "user@invalid",
-                                         place:              "foo",
                                          category: "bar" } }
     end
     assert_template 'incomes/new'
@@ -20,7 +19,6 @@ class IncomesAdditionTest < ActionDispatch::IntegrationTest
     assert_difference 'Income.count', 1 do
       post incomes_path, params: { income: { amount:  20,
                                          date: "11/27/2017",
-                                         place:              "kiosco",
                                          category: "Comida" } }
     end
     follow_redirect!

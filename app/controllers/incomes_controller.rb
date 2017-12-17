@@ -21,10 +21,14 @@ class IncomesController < ApplicationController
     end
   end
 
+  def index
+  	@incomes = Income.all.order('date DESC')
+  end
+
   private
 
   def income_params
-    params.require(:income).permit(:amount, :date, :place,
+    params.require(:income).permit(:amount, :date,
                                    :category)
   end
 
