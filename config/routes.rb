@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
 
-  get 'incomes/new'
+  get 'categories/new'
+
+  #get 'incomes/new'
 
 	root 'static_pages#home'
 	

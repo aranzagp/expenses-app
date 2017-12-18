@@ -28,10 +28,12 @@ class ExpensesController < ApplicationController
 
   def edit
     @expense = Expense.find(params[:id])
+    @value = @expense
   end
 
   def update
     @expense = Expense.find(params[:id])
+    @value = @expense
     if @expense.update_attributes(expense_params)
       flash[:success] = "Expense updated"
       redirect_to @expense

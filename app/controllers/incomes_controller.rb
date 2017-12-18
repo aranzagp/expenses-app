@@ -36,7 +36,22 @@ class IncomesController < ApplicationController
         end
       end
     end
+  end
 
+  def edit
+    @income = Income.find(params[:id])
+    @value = @income
+  end
+
+  def update
+    @income = Income.find(params[:id])
+    @value = @income
+    if @income.update_attributes(income_params)
+      flash[:success] = "Income updated"
+      redirect_to @income
+    else
+      render 'edit'
+    end
   end
 
   private
