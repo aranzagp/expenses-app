@@ -1,23 +1,25 @@
 <% provide(:title, 'All expenses') %>
 <h1>All expenses</h1>
-
-<table id="sortExp" class="table table-hover table-striped">
-  <tr>
-    <th>Amount</th>
-    <th>Date</th> 
-    <th>Place</th>
-    <th>Category</th>
-    <th></th>
-  </tr>
-  <% @expenses.each do |expense| %>
-  <tr id = "tr_<%= expense.id %>">
-    <td><%= link_to expense.amount, expense %> </td>
-    <td><%= expense.date %> </td> 
-    <td><%= expense.place %> </td>
-    <td><%= expense.category %> </td>
-    <td>
-      <button class="btn btn-danger" onclick="deleteExp(<%= expense.id %>)"> Delete </button>
-    </td>
-  </tr>
-  <% end %>
-</table>
+<div class="container">
+  <table id="sortExp" class="table table-hover table-striped">
+    <tr>
+      <th>Amount</th>
+      <th>Date</th> 
+      <th>Place</th>
+      <th>Category</th>
+      <th></th>
+    </tr>
+    <% @expenses.each do |expense| %>
+    <tr id = "tr_<%= expense.id %>">
+      <td><%= link_to expense.amount, expense %> </td>
+      <td><%= expense.date %> </td> 
+      <td><%= expense.place %> </td>
+      <td><%= expense.category %> </td>
+      <td>
+        <button class="btn btn-danger" onclick="deleteExp(<%= expense.id %>)"> Delete </button>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+  
+</div>
