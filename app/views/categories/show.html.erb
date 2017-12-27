@@ -1,0 +1,16 @@
+<div class="container">
+	<p>
+	  <strong>Name:</strong>
+	  <%= @category.name %>
+	</p>
+
+	<p>
+		<strong>Icon:</strong>
+      <a class="<%= @category.icon %> fa-lg" aria-hidden="true" style= "color:#660066"></a>
+	</p>
+
+	<p>
+		<%= link_to 'Edit', edit_category_path(@category) %> |
+		<%= link_to 'See all', categories_path %>
+	</p>
+</div>

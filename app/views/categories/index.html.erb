@@ -1,0 +1,29 @@
+<% provide(:title, 'Categories') %>
+<h1>All categories</h1>
+
+<div class="container">
+  <div class="row">
+    <a class="btn btn-success" href="/categories/new" role="button">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Category</a>
+  </div> 
+</div>
+<hr>
+<div class="container">
+  <table class="table table-hover table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Icon</th> 
+      <th></th>
+    </tr>
+    <% @categories.each do |category| %>
+    <tr id = "tr_<%= category.id %>">
+      <td><%= category.icon %> </td>
+      <td><%= link_to category.name, category %> </td>
+      <td>
+        <button class="btn btn-danger" onclick="deleteInc(<%= category.id %>)"> Delete </button>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+  
+</div>

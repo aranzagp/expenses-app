@@ -1,2 +1,31 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<% provide(:title, 'Categories') %>
+<h1>Add category</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@category, url:new_category_path) do |f| %>
+    	<%= render 'shared/error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control'%>
+
+
+      <%= f.label :icon, "Choose an icon:" %>
+      <div class="row">
+        <% icon_list.each do |icon| %>
+          <div class="col-sm-1" onclick="selectIcon(icon_<%= icon %>)" >
+            <a class="fa fa-<%= icon %>" aria-hidden="true" style= "color:#660066" 
+              id="icon_<%= icon %>"></a>
+          </div>
+        <% end %>            
+      </div>
+      <%= f.text_field :icon, class: 'form-control', style: 'visibility: hidden' %>
+
+
+      <hr>
+      <%= f.submit "Create category", class: "btn btn-primary" %>
+      
+    <% end %>
+
+  </div>
+  </div>
