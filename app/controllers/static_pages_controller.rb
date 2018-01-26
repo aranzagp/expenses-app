@@ -1,18 +1,8 @@
+
 class StaticPagesController < ApplicationController
 
   def home
-  	#@incomes= Income.where(:date => Time.now.strftime('%Y-%m-%d') ).sum(:amount)
-  	@incomes = Income.sum(:amount)
-  	@expenses = Expense.sum(:amount)
-  	#@expenses= Expense.where(:date => Time.now.strftime('%Y-%m-%d') ).sum(:amount)
-   end
-
-  def expenses
-  end
-
-  def income
-  end
-
-  def balance
+    @income_col = Income.group('CAST(strftime("%m", date) AS INTEGER)').sum(:amount)
+    @expense_col = Expense.group('CAST(strftime("%m", date) AS INTEGER)').sum(:amount)
   end
 end
