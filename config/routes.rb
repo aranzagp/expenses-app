@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'static_pages#home'
 
-
-  #get 'categories/new'
-
-  #get 'incomes/new'
-
-	root 'static_pages#home'
-	
   get 'static_pages/home'
 
   get 'static_pages/expenses'
@@ -15,19 +10,9 @@ Rails.application.routes.draw do
 
   get 'static_pages/balance'
 
-  get '/expenses/new',  to: 'expenses#new'
-
-  post '/expenses/new',  to: 'expenses#create'
-
-  post '/incomes/new',  to: 'incomes#create'
-
-  post '/categories/new',  to: 'categories#create'
-
   resources :expenses
 
   resources :incomes
 
   resources :categories
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

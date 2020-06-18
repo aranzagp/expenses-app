@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ExpensesAdditionTest < ActionDispatch::IntegrationTest
   test "invalid expenses addition information" do
-    get expenses_new_path
+    get new_expense_path
     assert_no_difference 'Expense.count' do
       post expenses_path, params: { expense: { amount:  nil,
                                          date: "user@invalid",
@@ -16,7 +16,7 @@ class ExpensesAdditionTest < ActionDispatch::IntegrationTest
   end
 
   test "valid expenses addition information" do
-    get expenses_new_path
+    get new_expense_path
     assert_difference 'Expense.count', 1 do
       post expenses_path, params: { expense: { amount:  20,
                                          date: "11/27/2017",

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ExpenseControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get expenses_new_url
+    get new_expense_path
     assert_response :success
   end
 
