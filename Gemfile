@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-sass', '>= 3.4.1'
 gem 'chartkick'
 gem 'coffee-rails', '4.2.2'
 gem 'font-awesome-sass'
 gem 'jbuilder', '2.7.0'
 gem 'jquery-datatables-rails'
 gem 'jquery-rails', '4.3.1'
-gem 'puma',         '3.9.1'
+gem "puma", ">= 3.12.6"
 gem 'rails',        '6.0.3.2'
 gem 'rails-controller-testing'
 gem 'sass-rails'
