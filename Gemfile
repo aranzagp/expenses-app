@@ -8,15 +8,15 @@ gem 'jbuilder', '2.7.0'
 gem 'jquery-datatables-rails'
 gem 'jquery-rails', '4.3.1'
 gem 'puma',         '3.9.1'
-gem 'rails',        '5.1.2'
+gem 'rails',        '5.2.0'
 gem 'rails-controller-testing'
 gem 'sass-rails',   '5.0.6'
 gem 'turbolinks',   '5.0.1'
 gem 'uglifier',     '3.2.0'
+gem 'pg', '>= 0.18', '< 2.0'
 
 group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
-  gem 'sqlite3', '1.3.13'
 end
 
 group :development do
@@ -25,10 +25,6 @@ group :development do
   gem 'spring', '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
   gem 'web-console', '3.5.1'
-end
-
-group :production do
-  gem 'pg', '0.20.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

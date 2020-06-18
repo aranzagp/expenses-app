@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get categories_new_url
+    get new_category_path
     assert_response :success
   end
 

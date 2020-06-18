@@ -2,7 +2,7 @@ require 'test_helper'
 
 class IncomesAdditionTest < ActionDispatch::IntegrationTest
   test "invalid income addition information" do
-    get incomes_new_path
+    get new_income_path
     assert_no_difference 'Income.count' do
       post incomes_path, params: { income: { amount:  nil,
                                          date: "user@invalid",
@@ -15,7 +15,7 @@ class IncomesAdditionTest < ActionDispatch::IntegrationTest
   end
 
   test "valid income addition information" do
-    get incomes_new_path
+    get new_income_path
     assert_difference 'Income.count', 1 do
       post incomes_path, params: { income: { amount:  20,
                                          date: "11/27/2017",
