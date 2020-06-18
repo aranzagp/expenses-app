@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-sass', '3.4.1'
 gem 'chartkick'
 gem 'coffee-rails', '4.2.2'
 gem 'font-awesome-sass'
