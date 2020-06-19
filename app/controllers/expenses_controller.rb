@@ -1,29 +1,29 @@
+# frozen_string_literal: true
+
 class ExpensesController < ApplicationController
-
-	def show
+  def show
     @expense = Expense.find(params[:id])
-
   end
 
   def new
-  	@expense = Expense.new
+    @expense = Expense.new
     @value = @expense
   end
 
   def create
-    @expense = Expense.new(expense_params)    # Not the final implementation!
+    @expense = Expense.new(expense_params) # Not the final implementation!
     @value = @expense
     if @expense.save
-    	flash[:success] = "Expense added!"
+      flash[:success] = 'Expense added!'
       redirect_to @expense
-      #redirect_to expense_url(@expense)
+      # redirect_to expense_url(@expense)
     else
       render 'new'
     end
   end
 
   def index
-  	@expenses = Expense.all.order('date DESC')
+    @expenses = Expense.all.order('date DESC')
   end
 
   def edit
@@ -35,7 +35,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.find(params[:id])
     @value = @expense
     if @expense.update_attributes(expense_params)
-      flash[:success] = "Expense updated"
+      flash[:success] = 'Expense updated'
       redirect_to @expense
     else
       render 'edit'
@@ -43,24 +43,22 @@ class ExpensesController < ApplicationController
   end
 
   def destroy
-    if Expense.destroy(params[:id])
-      logger.debug "Expense destroyed #{params[:id]}"
-      respond_to do |format|
-        format.json do
-          render json: {
-            status: 'success'
-          }.to_json
-        end
+    return unless Expense.destroy(params[:id])
+
+    logger.debug "Expense destroyed #{params[:id]}"
+    respond_to do |format|
+      format.json do
+        render json: {
+          status: 'success'
+        }.to_json
       end
     end
-
   end
 
   private
 
   def expense_params
-      params.require(:expense).permit(:amount, :date, :place,
-                                   :category)
-   end
-
+    params.require(:expense).permit(:amount, :date, :place,
+                                    :category)
+  end
 end
